@@ -1,0 +1,19 @@
+{
+  "name": "demo-unit-test",
+  "version": "0.0.0",
+  "homepage": "https://github.com/VirtualOverride/ng-demo",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.1",
+    "angular-mocks": "~1.4.1",
+    "ui-router": "~0.2.15",
+    "jquery": "~2.1.4"
+  }
+}
