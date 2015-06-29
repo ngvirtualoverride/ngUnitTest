@@ -1,6 +1,8 @@
 <h1>{{ main.header }}</h1>
 <ul>
-	<li ng-repeat="menu in main.menus">
-		<a href="{{ menu.link }}">{{ menu.name }}</a>
+	<li ng-repeat="person in main.persons">
+		<a href="/person/{{ person.id }}">
+			{{ person.lastName + ', ' + person.firstName }}
+		</a>
 	</li>
 </ul>

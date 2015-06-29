@@ -4,18 +4,18 @@
 	var controller = (function(){
 	    var vm;
 
-		  controller.$inject = ['$stateParams', 'PersonService'];
+		controller.$inject = ['$stateParams', 'PersonService'];
 
   	 	function controller($stateParams, PersonService){
-        vm = this;
+        	vm = this;
 
   	 		PersonService
-    	 			.getPersonById($stateParams.id)
-    	 			.then(function(response){
-    	 				vm.header = response.data.lastName
-    	 						.concat(', ')
-    	 						.concat(response.data.firstName);
-    	 			});
+	 			.getPersonById($stateParams.id)
+	 			.then(function(response){
+	 				vm.header = response.data.lastName
+	 						.concat(', ')
+	 						.concat(response.data.firstName);
+	 			});
   	 	}
 
 	 	 return controller;

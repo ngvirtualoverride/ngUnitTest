@@ -1,14 +1,22 @@
+/// <reference path="../typings/angularjs/angular.d.ts"/>
 (function(app){
 	'use strict';
 
 	 var controller = (function(){
-  	 	function controller(){
-			this.menus = [{
-				name: 'Persons',
-				link: '/persons'
-			}];
-
-			this.header = 'Person Information';
+		var vm;
+		 
+		controller.$inject = ['PersonService'];
+		 
+  	 	function controller(PersonService){		
+			vm = this;   
+			
+			this.header = 'Person Information';   
+			   
+			PersonService
+				.getPersons()
+				.then(function(response){
+					vm.persons = response.data.persons;
+				});
   	 	}
 
 	 	return controller;

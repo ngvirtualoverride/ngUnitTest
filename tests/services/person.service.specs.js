@@ -1,3 +1,4 @@
+/// <reference path="../../typings/jasmine/jasmine.d.ts"/>
 describe("App: Person Service", function() {
 	var personService,
 		httpBackend;
@@ -40,6 +41,33 @@ describe("App: Person Service", function() {
 					}]
 				});
 		});
+		
+		it("It should get Person list.", function(){
+			var result,
+				expectedResult = {
+					"persons": [{
+						"id": 1,
+						"firstName": "John",
+						"lastName": "Doe",
+						"age": 33
+					},{
+						"id": 2,
+						"firstName": "Peter",
+						"lastName": "Reyes",
+						"age": 35
+					}]
+				};
+				
+			personService
+				.getPersons()
+				.then(function(respose){
+					result = respose.data;
+				});
+			
+			httpBackend.flush();
+			
+			expect(result).toEqual(expectedResult);
+		});
 
 		it("It should get Person by id 1.", function() {
 			var result, 
@@ -55,7 +83,7 @@ describe("App: Person Service", function() {
 				.getPersonById(id)
 				.then(function(respose){
 					result = respose.data;
-				})
+				});
 
 			httpBackend.flush();
 
